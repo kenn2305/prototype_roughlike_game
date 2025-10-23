@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" load_steps=3 format=3 uid="uid://dcaih4ypm18n2"]
+
+[sub_resource type="Gradient" id="Gradient_ih4df"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hh6q1"]
+gradient = SubResource("Gradient_ih4df")
+
+[resource]
+atlas = SubResource("GradientTexture2D_hh6q1")
