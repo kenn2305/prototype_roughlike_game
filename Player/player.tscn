@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cfisjgjcid5qj"]
+[gd_scene load_steps=42 format=3 uid="uid://cfisjgjcid5qj"]
 
 [ext_resource type="Texture2D" uid="uid://b6rb23wdvywy1" path="res://Player/Axe/Idle.png" id="1_4ntmi"]
 [ext_resource type="Script" uid="uid://b183e34qqvfj5" path="res://Player/player.gd" id="1_n471f"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://2cq8vqnsy7c6" path="res://Player/AttackCombo/combo_tree.gd" id="25_qemgg"]
 [ext_resource type="Script" uid="uid://bfu0rjkkmhjai" path="res://Player/AttackCombo/primary_node.gd" id="26_sm0op"]
 [ext_resource type="Script" uid="uid://coblx3kbqs8cp" path="res://Player/AttackCombo/secondary_node.gd" id="27_76lrf"]
+[ext_resource type="Script" uid="uid://b645uk501j6lc" path="res://Player/AttackCombo/FrameData/frame_data.gd" id="28_76lrf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3vf3"]
 radius = 7.0
@@ -842,6 +843,21 @@ active_skill = NodePath("../../../../Attack_2")
 [node name="ComboTime" type="Timer" parent="."]
 
 [node name="ComboCoolDown" type="Timer" parent="."]
+
+[node name="FrameData" type="Node2D" parent="."]
+
+[node name="Attack_1" type="Area2D" parent="FrameData"]
+script = ExtResource("28_76lrf")
+metadata/_custom_type_script = "uid://b645uk501j6lc"
+
+[node name="Attack_2" type="Area2D" parent="FrameData"]
+script = ExtResource("28_76lrf")
+metadata/_custom_type_script = "uid://b645uk501j6lc"
+
+[node name="Attack_3" type="Area2D" parent="FrameData"]
+position = Vector2(16.666668, 4)
+script = ExtResource("28_76lrf")
+metadata/_custom_type_script = "uid://b645uk501j6lc"
 
 [connection signal="timeout" from="ComboTime" to="StateMachine/OnGround/Attack" method="_on_combo_time_timeout"]
 [connection signal="timeout" from="ComboCoolDown" to="StateMachine/OnGround/Attack" method="_on_combo_cool_down_timeout"]

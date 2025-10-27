@@ -7,10 +7,10 @@ func on_enter(previous_state: String, msg: Dictionary) -> void:
 
 func physics_update(delta: float) -> void:
 	controller.velocity.x = 0
-	active_primary_attack()
-	active_secondary_attack()
 	_on_switch_state()
 	_on_end_attack()
+	active_primary_attack()
+	active_secondary_attack()
 	if _super_state is InAir:
 		base_gravity(delta,attack_gravity)
 		var dir = Input.get_axis("left","right")
@@ -77,11 +77,16 @@ func _on_combo_cool_down_timeout() -> void:
 		print("End Cool down")
 		current_skill = null
 		player.can_attack = true
+		player.is_attack = false
 		player.end_attack = false
 
 func _on_switch_state() -> void:
-	if !player.can_switch_in_atk || player.prim_atk_buffered || player.second_atk_buffered:
+	if player._combo_cool_down_timer.is_stopped() && (player.prim_atk_buffered || player.second_atk_buffered):
 		return
+
+	if !player.can_switch_in_atk:
+		return
+
 	if _super_state is OnGround:
 		if Input.is_action_pressed("left") || Input.is_action_pressed("right"):
 			_super_state._switch_sub_state.emit("Run",{})
