@@ -7,8 +7,8 @@ func on_enter(previous_state: String, msg: Dictionary) -> void:
 
 func physics_update(delta: float) -> void:
 	controller.velocity.x = 0
-	_on_switch_state()
 	_on_end_attack()
+	_on_switch_state()
 	active_primary_attack()
 	active_secondary_attack()
 	if _super_state is InAir:
@@ -39,7 +39,7 @@ func active_primary_attack() -> void:
 		player._anim_player.play(current_skill.active_skill.anim_name)
 		if player.cancel_next_atk_wind_up:
 			player._anim_player.seek(current_skill.active_skill.active_frame)
-		player._combo_timer.start(player._anim_player.current_animation_length)
+		player._combo_timer.start(player._anim_player.current_animation_length + 0.3)
 		print(current_skill.active_skill.anim_name)
 
 func active_secondary_attack() -> void:
@@ -56,11 +56,11 @@ func active_secondary_attack() -> void:
 			current_skill = target_skill
 			if current_skill.is_final_node:
 				player._combo_cool_down_timer.start(1.0)
-		
+
 		player._anim_player.play(current_skill.active_skill.anim_name)
 		if player.cancel_next_atk_wind_up:
 			player._anim_player.seek(current_skill.active_skill.active_frame)
-		player._combo_timer.start(player._anim_player.current_animation_length)
+		player._combo_timer.start(player._anim_player.current_animation_length + 0.3)
 
 		print(current_skill.active_skill.anim_name)
 
@@ -84,7 +84,7 @@ func _on_switch_state() -> void:
 	if player._combo_cool_down_timer.is_stopped() && (player.prim_atk_buffered || player.second_atk_buffered):
 		return
 
-	if !player.can_switch_in_atk:
+	if !player.can_switch_in_atk && !player.end_attack:
 		return
 
 	if _super_state is OnGround:

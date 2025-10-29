@@ -1,13 +1,13 @@
 class_name ActiveSkill extends Node2D
-@export var _owner: Player
+@export var player: Player
 @export var anim_name: String
 @export var anim_player: AnimationPlayer
 @export var active_frame: float
 
 func _ready() -> void:
-	_owner = owner
+	player = owner
 	anim_name = self.name
-	anim_player = _owner._anim_player
+	anim_player = player._anim_player
 
 func set_time_seek() -> void:
 	anim_player.seek(active_frame)

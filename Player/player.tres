@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dbn8qh6sopymx"]
+
+[ext_resource type="Shader" uid="uid://bi24f85gcxsk7" path="res://Player/player_form.gdshader" id="1_0ebbv"]
+
+[resource]
+shader = ExtResource("1_0ebbv")
+shader_parameter/color_count = 2
+shader_parameter/target_color = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/replace_color = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/tolerance = 0.02000000095

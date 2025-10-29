@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://cfisjgjcid5qj"]
+[gd_scene load_steps=53 format=3 uid="uid://cfisjgjcid5qj"]
 
 [ext_resource type="Texture2D" uid="uid://b6rb23wdvywy1" path="res://Player/Axe/Idle.png" id="1_4ntmi"]
 [ext_resource type="Script" uid="uid://b183e34qqvfj5" path="res://Player/player.gd" id="1_n471f"]
+[ext_resource type="Material" uid="uid://dbn8qh6sopymx" path="res://Player/player.tres" id="2_755ss"]
 [ext_resource type="Texture2D" uid="uid://cqrxwiyp67q5y" path="res://Player/Axe/Run.png" id="2_btcbx"]
 [ext_resource type="Texture2D" uid="uid://dc5ekyh4jxtw6" path="res://Player/Axe/Jump.png" id="3_fhl08"]
 [ext_resource type="Texture2D" uid="uid://dhxc2ok36wd3q" path="res://Player/Axe/Fall.png" id="4_vtle1"]
@@ -28,10 +29,38 @@
 [ext_resource type="Script" uid="uid://bfu0rjkkmhjai" path="res://Player/AttackCombo/primary_node.gd" id="26_sm0op"]
 [ext_resource type="Script" uid="uid://coblx3kbqs8cp" path="res://Player/AttackCombo/secondary_node.gd" id="27_76lrf"]
 [ext_resource type="Script" uid="uid://b645uk501j6lc" path="res://Player/AttackCombo/FrameData/frame_data.gd" id="28_76lrf"]
+[ext_resource type="Script" uid="uid://blrxno27rblrx" path="res://Player/AttackCombo/FrameData/frame_data_object.gd" id="29_efx54"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3vf3"]
 radius = 7.0
 height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efx54"]
+size = Vector2(67.333336, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_755ss"]
+size = Vector2(22.333336, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbimk"]
+size = Vector2(18.333336, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m0h3t"]
+size = Vector2(10.378183, 21.99519)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4o1l"]
+size = Vector2(49, 10.666666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2n6q"]
+size = Vector2(52.333336, 12.666668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6x0f"]
+size = Vector2(26.000002, 26.333334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp1hh"]
+size = Vector2(37.916668, 12.833333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs4pp"]
+size = Vector2(29.278881, 8.22228)
 
 [sub_resource type="Animation" id="Animation_dkpta"]
 resource_name = "Attack_1"
@@ -119,6 +148,61 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Attack_1")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"active_dash_frame"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CharacterBody2D/FrameData/Attack_1")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0],
+"method": &"get_frame_active"
+}, {
+"args": [1],
+"method": &"get_frame_active"
+}, {
+"args": [2],
+"method": &"get_frame_active"
+}, {
+"args": [3],
+"method": &"get_frame_active"
+}, {
+"args": [4],
+"method": &"get_frame_active"
+}, {
+"args": [5],
+"method": &"get_frame_active"
+}, {
+"args": [6],
+"method": &"get_frame_active"
+}, {
+"args": [7],
+"method": &"get_frame_active"
+}, {
+"args": [8],
+"method": &"get_frame_active"
+}, {
+"args": [],
+"method": &"end"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_lfmf2"]
@@ -208,6 +292,61 @@ tracks/6/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Attack_2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"active_dash_frame"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CharacterBody2D/FrameData/Attack_2")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0],
+"method": &"get_frame_active"
+}, {
+"args": [1],
+"method": &"get_frame_active"
+}, {
+"args": [2],
+"method": &"get_frame_active"
+}, {
+"args": [3],
+"method": &"get_frame_active"
+}, {
+"args": [4],
+"method": &"get_frame_active"
+}, {
+"args": [5],
+"method": &"get_frame_active"
+}, {
+"args": [6],
+"method": &"get_frame_active"
+}, {
+"args": [7],
+"method": &"get_frame_active"
+}, {
+"args": [8],
+"method": &"get_frame_active"
+}, {
+"args": [],
+"method": &"end"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_pisgm"]
 resource_name = "Attack_3"
@@ -296,6 +435,67 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Attack_3")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"active_dash_frame"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CharacterBody2D/FrameData/Attack_3")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0],
+"method": &"get_frame_active"
+}, {
+"args": [1],
+"method": &"get_frame_active"
+}, {
+"args": [2],
+"method": &"get_frame_active"
+}, {
+"args": [3],
+"method": &"get_frame_active"
+}, {
+"args": [4],
+"method": &"get_frame_active"
+}, {
+"args": [5],
+"method": &"get_frame_active"
+}, {
+"args": [6],
+"method": &"get_frame_active"
+}, {
+"args": [7],
+"method": &"get_frame_active"
+}, {
+"args": [8],
+"method": &"get_frame_active"
+}, {
+"args": [9],
+"method": &"get_frame_active"
+}, {
+"args": [10],
+"method": &"get_frame_active"
+}, {
+"args": [],
+"method": &"end"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_5htga"]
@@ -713,12 +913,273 @@ collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture_repeat = 2
+material = ExtResource("2_755ss")
 texture = ExtResource("1_4ntmi")
 hframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
 position = Vector2(0, 15)
 shape = SubResource("CapsuleShape2D_x3vf3")
+
+[node name="FrameData" type="Node2D" parent="CharacterBody2D"]
+
+[node name="Attack_1" type="Area2D" parent="CharacterBody2D/FrameData"]
+visible = false
+collision_mask = 4
+monitoring = false
+monitorable = false
+script = ExtResource("28_76lrf")
+metadata/_custom_type_script = "uid://b645uk501j6lc"
+
+[node name="Frame_0_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_1_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 1
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_2_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 2
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_3_A" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+position = Vector2(7.3333335, 18.5)
+shape = SubResource("RectangleShape2D_efx54")
+script = ExtResource("29_efx54")
+frame_index = 3
+priority = 1
+effect_type = 2
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_3_B" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+position = Vector2(22.166668, 15.5)
+shape = SubResource("RectangleShape2D_755ss")
+script = ExtResource("29_efx54")
+frame_index = 3
+priority = 2
+effect_type = 2
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_3_C" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+position = Vector2(2.166667, 9.083334)
+shape = SubResource("RectangleShape2D_bbimk")
+script = ExtResource("29_efx54")
+frame_index = 3
+priority = 3
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_4_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 4
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_5_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 5
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_6_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 6
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_7_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 7
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_8_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 8
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_9_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_1"]
+script = ExtResource("29_efx54")
+frame_index = 9
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Attack_2" type="Area2D" parent="CharacterBody2D/FrameData"]
+visible = false
+collision_mask = 4
+script = ExtResource("28_76lrf")
+metadata/_custom_type_script = "uid://b645uk501j6lc"
+
+[node name="Frame_0_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_1_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 1
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_2_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 2
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_3_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 3
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_4_A" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+position = Vector2(33.08288, 12.939711)
+rotation = 0.80515075
+shape = SubResource("RectangleShape2D_m0h3t")
+script = ExtResource("29_efx54")
+frame_index = 4
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_4_B" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+position = Vector2(5.5, 18.666668)
+shape = SubResource("RectangleShape2D_i4o1l")
+script = ExtResource("29_efx54")
+frame_index = 4
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_4_C" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+position = Vector2(12.166668, 7.333334)
+shape = SubResource("RectangleShape2D_j2n6q")
+script = ExtResource("29_efx54")
+frame_index = 4
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_5_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 5
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_6_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 6
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_7_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 7
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_8_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 8
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_9_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_2"]
+script = ExtResource("29_efx54")
+frame_index = 9
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Attack_3" type="Area2D" parent="CharacterBody2D/FrameData"]
+visible = false
+position = Vector2(16.666668, 4)
+collision_mask = 4
+script = ExtResource("28_76lrf")
+metadata/_custom_type_script = "uid://b645uk501j6lc"
+
+[node name="Frame_0_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_1_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 1
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_2_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 2
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_3_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 3
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_4_A" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+position = Vector2(5.333332, 7)
+shape = SubResource("RectangleShape2D_c6x0f")
+script = ExtResource("29_efx54")
+frame_index = 4
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_4_B" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+position = Vector2(-5.375001, -11.583334)
+shape = SubResource("RectangleShape2D_jp1hh")
+script = ExtResource("29_efx54")
+frame_index = 4
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_4_C" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+position = Vector2(-28.555344, 3.9134192)
+rotation = -0.96610737
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_qs4pp")
+script = ExtResource("29_efx54")
+frame_index = 4
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_5_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 5
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_6_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 6
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_7_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 7
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_8_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 8
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_9_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 9
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
+
+[node name="Frame_10_EMPTY" type="CollisionShape2D" parent="CharacterBody2D/FrameData/Attack_3"]
+script = ExtResource("29_efx54")
+frame_index = 10
+frame_type = 1
+metadata/_custom_type_script = "uid://blrxno27rblrx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -771,15 +1232,6 @@ db_jump_mult = 0.98
 script = ExtResource("17_7emwf")
 attack_gravity = 90.21
 attack_velocity = 360.52
-
-[node name="Attack_1" type="Node2D" parent="."]
-script = ExtResource("22_8mwp6")
-
-[node name="Attack_2" type="Node2D" parent="."]
-script = ExtResource("23_qemgg")
-
-[node name="Attack_3" type="Node2D" parent="."]
-script = ExtResource("24_8viyr")
 
 [node name="ComboTree" type="Node" parent="."]
 script = ExtResource("25_qemgg")
@@ -840,24 +1292,21 @@ active_skill = NodePath("../../../../Attack_1")
 script = ExtResource("27_76lrf")
 active_skill = NodePath("../../../../Attack_2")
 
-[node name="ComboTime" type="Timer" parent="."]
+[node name="ComboTime" type="Timer" parent="ComboTree"]
 
-[node name="ComboCoolDown" type="Timer" parent="."]
+[node name="ComboCoolDown" type="Timer" parent="ComboTree"]
 
-[node name="FrameData" type="Node2D" parent="."]
+[node name="Attack_1" type="Node2D" parent="."]
+script = ExtResource("22_8mwp6")
+dash_velocity = 1655.73
 
-[node name="Attack_1" type="Area2D" parent="FrameData"]
-script = ExtResource("28_76lrf")
-metadata/_custom_type_script = "uid://b645uk501j6lc"
+[node name="Attack_2" type="Node2D" parent="."]
+script = ExtResource("23_qemgg")
+dash_velocity = 1423.23
 
-[node name="Attack_2" type="Area2D" parent="FrameData"]
-script = ExtResource("28_76lrf")
-metadata/_custom_type_script = "uid://b645uk501j6lc"
+[node name="Attack_3" type="Node2D" parent="."]
+script = ExtResource("24_8viyr")
+dash_velocity = 1290.32
 
-[node name="Attack_3" type="Area2D" parent="FrameData"]
-position = Vector2(16.666668, 4)
-script = ExtResource("28_76lrf")
-metadata/_custom_type_script = "uid://b645uk501j6lc"
-
-[connection signal="timeout" from="ComboTime" to="StateMachine/OnGround/Attack" method="_on_combo_time_timeout"]
-[connection signal="timeout" from="ComboCoolDown" to="StateMachine/OnGround/Attack" method="_on_combo_cool_down_timeout"]
+[connection signal="timeout" from="ComboTree/ComboTime" to="StateMachine/OnGround/Attack" method="_on_combo_time_timeout"]
+[connection signal="timeout" from="ComboTree/ComboCoolDown" to="StateMachine/OnGround/Attack" method="_on_combo_cool_down_timeout"]

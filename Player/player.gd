@@ -12,7 +12,7 @@ class_name Player extends Node2D
 @export var _combo_tree: ComboTree
 @export var _combo_timer: Timer = Timer.new()
 @export var _combo_cool_down_timer: Timer = Timer.new()
-@export var debug_velocity: Vector2
+@export var _frame_data: Node
 @export_category("OnGround/Movement")
 @export var direction: float = 1
 @export var max_velocity: float
@@ -48,6 +48,7 @@ class_name Player extends Node2D
 @export var can_switch_in_atk: bool = false
 @export var end_attack: bool = false
 @export var cancel_next_atk_wind_up: bool = false
+
 func _enter_tree() -> void:
 	_state_machine = find_child("StateMachine")
 	_controller = find_child("CharacterBody2D")
@@ -56,6 +57,7 @@ func _enter_tree() -> void:
 	_combo_tree = find_child("ComboTree")
 	_combo_cool_down_timer = find_child("ComboCoolDown")
 	_combo_timer = find_child("ComboTime")
+	_frame_data = find_child("FrameData")
 
 func _ready() -> void:
 	init_variable()
@@ -89,9 +91,9 @@ func _process(delta: float) -> void:
 	_state_machine.update(delta)
 
 func _physics_process(delta: float) -> void:
-	debug_velocity = _controller.velocity
 	jump_input_buffered()
 	attack_input_buffered()
+	_frame_data.scale.x = direction
 	_controller.move_and_slide()
 	_state_machine.physics_update(delta)
 
