@@ -1,6 +1,6 @@
 class_name FrameDataObject extends CollisionShape2D
 
-enum EffectType { NONE,STUN, KNOCK_BACK, KNOCK_UP,}
+enum EffectType { NONE,STUN, KNOCK_BACK, KNOCK_UP, BURN, VUNERABLE, SLOW, EXECUTE}
 enum FrameType {ACTIVE, EMPTY,}
 @export var frame_index: int
 @export var priority: int

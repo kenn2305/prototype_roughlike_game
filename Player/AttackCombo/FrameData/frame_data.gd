@@ -44,3 +44,9 @@ func end() -> void:
 	for child in frame_data_hitbox_data.values():
 		for frame in child:
 			frame.disabled = true
+
+func debug_color(color: Color) -> void:
+	for child in frame_data_hitbox_data.values():
+		var tmp_color: Color = Color(color.r,color.g,color.b,0.5)
+		for frame in child:
+			frame.debug_color = tmp_color

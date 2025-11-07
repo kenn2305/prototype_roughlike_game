@@ -6,6 +6,7 @@ func on_enter(previous_state: String, msg: Dictionary) -> void:
     player._anim_player.play("Idle")
 
 func physics_update(delta: float) -> void:
+    player._player_form.physics_update(delta)
     if Input.is_action_just_pressed("dash") && player.can_dash:
         _super_state._switch_sub_state.emit("Dash",{})
 

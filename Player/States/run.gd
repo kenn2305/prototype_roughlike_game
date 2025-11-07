@@ -8,6 +8,7 @@ func update(delta: float) -> void:
 	update_direction()
 
 func physics_update(delta: float) -> void:
+	player._player_form.physics_update(delta)
 	if !Input.is_action_pressed("left") && !Input.is_action_pressed("right"):
 		_super_state._switch_sub_state.emit("Idle",{})
 	elif Input.is_action_pressed("left") && Input.is_action_pressed("right"):

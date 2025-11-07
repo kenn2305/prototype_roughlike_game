@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwdrmenowhabw"]
+
+[ext_resource type="Texture2D" uid="uid://bynu2vgdms3p8" path="res://Player/Form/Elemental/Normal.png" id="1_4xp8o"]
+[ext_resource type="Script" uid="uid://dq4y4su14n7m8" path="res://Player/UI_Controller/elment_ui.gd" id="1_es87s"]
+[ext_resource type="Script" uid="uid://b37uqyv32twhw" path="res://Player/UI_Controller/card.gd" id="2_n7sgu"]
+[ext_resource type="Material" uid="uid://deh4hdg5yvoxc" path="res://Player/UI_Controller/Shader/elment_ui.tres" id="3_snefj"]
+[ext_resource type="Texture2D" uid="uid://b14od7rxrc1og" path="res://Player/Form/Elemental/Water.png" id="4_snefj"]
+[ext_resource type="Texture2D" uid="uid://bqh7ytx8s1m61" path="res://Player/Form/Elemental/Fire.png" id="5_es87s"]
+
+[node name="ElementUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_es87s")
+
+[node name="Card2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30381948
+anchor_top = 0.4367284
+anchor_right = 0.4513889
+anchor_bottom = 0.73302484
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.2766851
+pivot_offset = Vector2(87, 98)
+flat = true
+script = ExtResource("2_n7sgu")
+metadata/_edit_use_anchors_ = true
+
+[node name="CardTexture" type="TextureRect" parent="Card2"]
+material = ExtResource("3_snefj")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -27.5
+offset_right = 24.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_snefj")
+
+[node name="Card1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43055555
+anchor_top = 0.4074074
+anchor_right = 0.578125
+anchor_bottom = 0.7037037
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(87, 98)
+flat = true
+script = ExtResource("2_n7sgu")
+metadata/_edit_use_anchors_ = true
+
+[node name="CardTexture" type="TextureRect" parent="Card1"]
+material = ExtResource("3_snefj")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -27.5
+offset_right = 24.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4xp8o")
+
+[node name="Card3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56597215
+anchor_top = 0.43518513
+anchor_right = 0.7135416
+anchor_bottom = 0.73148155
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.2738241
+pivot_offset = Vector2(87, 98)
+flat = true
+script = ExtResource("2_n7sgu")
+metadata/_edit_use_anchors_ = true
+
+[node name="CardTexture" type="TextureRect" parent="Card3"]
+material = ExtResource("3_snefj")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -27.5
+offset_right = 24.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_es87s")
+
+[connection signal="mouse_entered" from="Card2" to="Card2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Card2" to="Card2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Card1" to="Card1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Card1" to="Card1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Card3" to="Card3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Card3" to="Card3" method="_on_mouse_exited"]

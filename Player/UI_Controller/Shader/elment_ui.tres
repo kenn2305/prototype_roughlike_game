@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://deh4hdg5yvoxc"]
+
+[ext_resource type="Shader" uid="uid://bv8xo34rt6aug" path="res://Player/UI_Controller/Shader/fake_3d.gdshader" id="1_dbkqw"]
+
+[resource]
+shader = ExtResource("1_dbkqw")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 5.50000026125

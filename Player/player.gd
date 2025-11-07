@@ -12,7 +12,11 @@ class_name Player extends Node2D
 @export var _combo_tree: ComboTree
 @export var _combo_timer: Timer = Timer.new()
 @export var _combo_cool_down_timer: Timer = Timer.new()
-@export var _frame_data: Node
+@export var _frame_data: FrameDataContainer
+@export var _player_form: StateMachine
+@export var _form_container: FormContainer
+@export var _elemental_ui: ElementUi
+
 @export_category("OnGround/Movement")
 @export var direction: float = 1
 @export var max_velocity: float
@@ -50,14 +54,17 @@ class_name Player extends Node2D
 @export var cancel_next_atk_wind_up: bool = false
 
 func _enter_tree() -> void:
-	_state_machine = find_child("StateMachine")
-	_controller = find_child("CharacterBody2D")
-	_sprite = find_child("Sprite2D")
-	_anim_player = find_child("AnimationPlayer")
-	_combo_tree = find_child("ComboTree")
-	_combo_cool_down_timer = find_child("ComboCoolDown")
-	_combo_timer = find_child("ComboTime")
-	_frame_data = find_child("FrameData")
+	_state_machine = get_node("StateMachine")
+	_player_form = get_node("ElementalForm")
+	_form_container = get_node("FormController")
+	_elemental_ui = get_node("CanvasLayer/ElementUI")
+	_controller = get_node("CharacterBody2D")
+	_sprite = get_node("CharacterBody2D/Sprite2D")
+	_anim_player = get_node("AnimationPlayer")
+	_combo_tree = get_node("ComboTree")
+	_combo_cool_down_timer = get_node("ComboTree/ComboCoolDown")
+	_combo_timer = get_node("ComboTree/ComboTime")
+	_frame_data = get_node("CharacterBody2D/FrameData")
 
 func _ready() -> void:
 	init_variable()
