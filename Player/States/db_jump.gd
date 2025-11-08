@@ -11,6 +11,7 @@ func on_enter(previous_state: String, msg: Dictionary) -> void:
     player.can_double_jump = false
 
 func physics_update(delta: float) -> void:
+    player._player_form.physics_update(delta)
     base_gravity(delta,player.max_gravity)
     var dir = Input.get_axis("left","right")
     var target_velocity = player.max_velocity * dir * air_resist

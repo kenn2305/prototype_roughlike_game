@@ -131,3 +131,7 @@ func _on_jump_buffer_timer_timeout() -> void:
 func _on_attack_timer_timeout() -> void:
 	prim_atk_buffered = false
 	second_atk_buffered = false
+
+
+func _on_attack_2_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.

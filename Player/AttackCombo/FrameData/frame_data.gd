@@ -50,3 +50,10 @@ func debug_color(color: Color) -> void:
 		var tmp_color: Color = Color(color.r,color.g,color.b,0.5)
 		for frame in child:
 			frame.debug_color = tmp_color
+
+
+func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	
+	if body is Dummy:
+		var hitbox = frame_data_hitbox_data[current_frame_index][local_shape_index]
+		body.get_all_hitbox(hitbox)

@@ -10,6 +10,7 @@ func on_enter(previous_state: String, msg: Dictionary) -> void:
     player.air_decel = jump_decel
 
 func physics_update(delta: float) -> void:
+    player._player_form.physics_update(delta)
     base_gravity(delta,player.max_gravity)
     if Input.is_action_just_released("jump"):
         controller.velocity.y *= 0.52
